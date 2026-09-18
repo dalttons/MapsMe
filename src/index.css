@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-brand-peach: #E76F51;
+    --color-brand-peach-dark: #C85A3D;
+    --color-brand-teal: #2A9D8F;
+    --color-brand-teal-dark: #1E7A6E;
+    --color-brand-dark: #264653;
+    --color-bg: #FFFFFF;
+    --color-surface: #F8F9FA;
+    --color-border: #E5E7EB;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #F8FAFB;
+    color: #111827;
+    min-height: 100vh;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* ---- Card ---- */
+  .card {
+    @apply bg-white rounded-xl border border-gray-100 shadow-card transition-shadow duration-200;
+  }
+  .card:hover {
+    @apply shadow-card-hover;
+  }
+
+  /* ---- Buttons ---- */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-brand-peach text-white font-semibold text-sm rounded-lg
+           transition-all duration-200 hover:bg-brand-peach-dark active:scale-95 focus:outline-none
+           focus:ring-2 focus:ring-brand-peach focus:ring-offset-2;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-brand-teal text-white font-semibold text-sm rounded-lg
+           transition-all duration-200 hover:bg-brand-teal-dark active:scale-95 focus:outline-none
+           focus:ring-2 focus:ring-brand-teal focus:ring-offset-2;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 text-gray-600 font-medium text-sm rounded-lg
+           transition-all duration-200 hover:bg-gray-100 active:scale-95 focus:outline-none
+           focus:ring-2 focus:ring-gray-300 focus:ring-offset-1;
+  }
+
+  /* ---- Inputs ---- */
+  .input {
+    @apply w-full px-3 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-900
+           placeholder-gray-400 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-brand-peach focus:border-transparent;
+  }
+
+  /* ---- Status badges ---- */
+  .badge-pending {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold
+           bg-blue-100 text-blue-800 border border-blue-200;
+  }
+  .badge-negotiating {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold
+           bg-amber-100 text-amber-800 border border-amber-200;
+  }
+  .badge-discarded {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold
+           bg-gray-100 text-gray-700 border border-gray-200;
+  }
+
+  /* ---- Estado select buttons ---- */
+  .estado-btn {
+    @apply flex-1 px-2 py-1.5 text-xs font-semibold rounded-md border-2 transition-all duration-150
+           cursor-pointer text-center;
+  }
+  .estado-btn-active-pending {
+    @apply bg-blue-700 text-white border-blue-700;
+  }
+  .estado-btn-inactive-pending {
+    @apply bg-white text-blue-700 border-blue-300 hover:border-blue-500;
+  }
+  .estado-btn-active-negotiating {
+    @apply bg-amber-700 text-white border-amber-700;
+  }
+  .estado-btn-inactive-negotiating {
+    @apply bg-white text-amber-700 border-amber-300 hover:border-amber-500;
+  }
+  .estado-btn-active-discarded {
+    @apply bg-gray-600 text-white border-gray-600;
+  }
+  .estado-btn-inactive-discarded {
+    @apply bg-white text-gray-600 border-gray-300 hover:border-gray-400;
+  }
+
+  /* ---- Section header ---- */
+  .section-header {
+    @apply flex items-center justify-between w-full px-4 py-3 rounded-xl font-semibold text-sm
+           transition-all duration-200 cursor-pointer select-none;
+  }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
